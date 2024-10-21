@@ -1,0 +1,86 @@
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:90
+Alex Remaining Rights 	:85
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:80
+Alex Remaining Rights 	:75
+======== NEW ROUND ===========
+Start : Second
+------------
+Alex => Marc 10
+------------
+Marc => Alex 10
+------------
+Marc Remaining Rights 	:70
+Alex Remaining Rights 	:65
+======== NEW ROUND ===========
+Start : Second
+------------
+Alex => Marc 10
+------------
+Marc => Alex 10
+------------
+Marc Remaining Rights 	:60
+Alex Remaining Rights 	:55
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:50
+Alex Remaining Rights 	:45
+======== NEW ROUND ===========
+Start : Second
+------------
+Alex => Marc 10
+------------
+Marc => Alex 10
+------------
+Marc Remaining Rights 	:40
+Alex Remaining Rights 	:35
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:30
+Alex Remaining Rights 	:25
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:20
+Alex Remaining Rights 	:15
+======== NEW ROUND ===========
+Start : First
+------------
+Marc => Alex 10
+------------
+Alex => Marc 10
+------------
+Marc Remaining Rights 	:10
+Alex Remaining Rights 	:5
+======== NEW ROUND ===========
+Start : Second
+------------
+Alex => Marc 10
+Winner : Alex
