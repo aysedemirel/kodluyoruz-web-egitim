@@ -3,34 +3,35 @@ package com.ayse.condition;
 import java.util.Scanner;
 
 /**
- * Java ile kullanıcıdan alınan para değerinin KDV'li fiyatını ve KDV tutarını hesaplayıp ekrana
- * bastıran programı yazın. (Not : KDV tutarını 18% olarak alın) KDV'siz Fiyat = 10; KDV'li Fiyat =
- * 11.8; KDV tutarı = 1.8;
- * <p>
- * Eğer girilen tutar 0 ve 1000 TL arasında ise KDV oranı %18 , tutar 1000 TL'den büyük ise KDV
- * oranını %8 olarak KDV tutarı hesaplayan programı yazınız.
+ * Write a program that calculates and prints the VAT-inclusive price and
+ * VAT amount of the value received from the user.
+ * (Note: Take the VAT amount as 18%)
+ * VAT-excluded Price = 10;
+ * VAT-inclusive Price = 11.8;
+ * VAT amount = 1.8;
+ * <br/>
+ * If the entered amount is between 0 and 1000 TL, the VAT rate is 18%,
+ * if the amount is greater than 1000 TL, calculate the VAT amount with a VAT rate of 8%.
+ *
+ * @author aysedemirel
  */
 public class VatAmount {
+    private static final double VAT_PERCENTAGE_HIGH = 0.18;
+    private static final double VAT_PERCENTAGE_LOW = 0.08;
 
-  private static final double VAT_PERCENTAGE_HIGH = 0.18;
-  private static final double VAT_PERCENTAGE_LOW = 0.08;
-  private final double priceWithoutVat;
 
-  public VatAmount() {
-    System.out.print("Please enter the price without VAT: ");
-    Scanner scanner = new Scanner(System.in);
-    priceWithoutVat = scanner.nextDouble();
-  }
+    public static void main(String[] args) {
+        System.out.print("Please enter the price without VAT: ");
+        Scanner scanner = new Scanner(System.in);
+        double priceWithoutVat = scanner.nextDouble();
+        calculateVat(priceWithoutVat);
+        scanner.close();
+    }
 
-  public static void main(String[] args) {
-    VatAmount vatAmount = new VatAmount();
-    vatAmount.calculateVat();
-  }
-
-  public void calculateVat() {
-    double vat =
-        (priceWithoutVat > 0 && priceWithoutVat < 1000) ? VAT_PERCENTAGE_HIGH : VAT_PERCENTAGE_LOW;
-    double result = priceWithoutVat + (priceWithoutVat * vat);
-    System.out.println("Price with VAT (%" + vat * 100 + ") : " + result);
-  }
+    private static void calculateVat(double priceWithoutVat) {
+        double vat =
+                (priceWithoutVat > 0 && priceWithoutVat < 1000) ? VAT_PERCENTAGE_HIGH : VAT_PERCENTAGE_LOW;
+        double result = priceWithoutVat + (priceWithoutVat * vat);
+        System.out.println("Price with VAT (%" + vat * 100 + ") : " + result);
+    }
 }

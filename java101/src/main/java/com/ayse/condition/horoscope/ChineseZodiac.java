@@ -3,26 +3,23 @@ package com.ayse.condition.horoscope;
 import java.util.Scanner;
 
 /**
- * Çin zodyağı hesaplanırken kişinin doğum yılının 12 ile bölümünde kalana göre bulunur.
+ * Calculating the Chinese zodiac is done by dividing the person's birth year by 12
+ * and taking the remainder. The remainder is the Chinese zodiac sign.
+ *
+ * @author aysedemirel
  */
 public class ChineseZodiac {
 
-  private final int birthYear;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Birth year: ");
+        int birthYear = scanner.nextInt();
+        calculateZodiac(birthYear);
+    }
 
-  public ChineseZodiac() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Birthyear: ");
-    birthYear = scanner.nextInt();
-  }
-
-  public static void main(String[] args) {
-    ChineseZodiac chineseZodiac = new ChineseZodiac();
-    chineseZodiac.calculateZodiac();
-  }
-
-  public void calculateZodiac() {
-    int type = birthYear % 12;
-    ChineseZodiacTypes zodiac = ChineseZodiacTypes.getType(type);
-    System.out.println("Zodiac: " + zodiac);
-  }
+    private static void calculateZodiac(int birthYear) {
+        int type = birthYear % 12;
+        ChineseZodiacTypes zodiac = ChineseZodiacTypes.getType(type);
+        System.out.println("Zodiac: " + zodiac);
+    }
 }
