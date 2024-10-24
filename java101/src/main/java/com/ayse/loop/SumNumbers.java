@@ -3,26 +3,26 @@ package com.ayse.loop;
 import java.util.Scanner;
 
 /**
- * Java döngüler ile tek bir sayı girilene kadar kullanıcıdan girişleri kabul eden ve girilen
- * değerlerden çift ve 4'ün katları olan sayıları toplayıp ekrana basan programı yazıyoruz.
+ * Write a program in Java that accepts entries from the user until a single number is entered with loops,
+ * and prints the sum of the numbers entered, which are even and multiples of 4, on the screen.
+ *
+ * @author aysedemirel
  */
 public class SumNumbers {
 
-  public SumNumbers() {
-    boolean isNotOdd = true;
-    Scanner scanner = new Scanner(System.in);
-    int sum = 0;
-    while (isNotOdd) {
-      int num = scanner.nextInt();
-      isNotOdd = (num % 2 == 0);
-      if (num % 4 == 0) {
-        sum += num;
-      }
+    public static void main(String[] args) {
+        boolean isNotOdd = true;
+        Scanner scanner = new Scanner(System.in);
+        int sum = 0;
+        System.out.println("Please enter numbers. To stop, enter an odd number: ");
+        while (isNotOdd) {
+            int num = scanner.nextInt();
+            isNotOdd = (num % 2 == 0);
+            if (num % 4 == 0) {
+                sum += num;
+            }
+        }
+        System.out.println("Sum: " + sum);
+        scanner.close();
     }
-    System.out.println("Sum: " + sum);
-  }
-
-  public static void main(String[] args) {
-    new SumNumbers();
-  }
 }

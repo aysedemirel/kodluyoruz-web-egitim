@@ -3,43 +3,38 @@ package com.ayse.loop;
 import java.util.Scanner;
 
 /**
- * Bir sayının kendisi hariç pozitif tam sayı çarpanları (kalansız bölen sayıların) toplamı
- * kendisine eşit olan sayıya mükemmel sayı denir.
+ * A number is called a perfect number if the sum of its positive divisors (excluding the number itself)
+ * is equal to the number.
  * <p>
- * Klavyeden girilen bir sayının mükemmel sayı olup/olmadığını bulan ve sayı mükemmel sayı ise
- * ekrana “mükemmel sayıdır.” değilse “mükemmel sayı değildir.” ifadelerini ekrana yazan programı
- * Java dilinde yazınız.
+ * Write a Java program that checks if a number entered from the keyboard is a perfect number or not,
+ * and prints "is a perfect number" if it is, otherwise prints "is not a perfect number".
+ *
+ * @author aysedemirel
  */
 public class PerfectNumber {
 
-  private final int number;
-
-  public PerfectNumber() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Please enter a number:");
-    number = scanner.nextInt();
-  }
-
-  public static void main(String[] args) {
-    PerfectNumber perfectNumber = new PerfectNumber();
-    perfectNumber.printResult();
-  }
-
-  public void printResult() {
-    if (isPerfectNumber()) {
-      System.out.println(number + " is perfect number");
-    } else {
-      System.out.println(number + " is not perfect number");
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Please enter a number:");
+        int number = scanner.nextInt();
+        printResult(number);
     }
-  }
 
-  private boolean isPerfectNumber() {
-    int sum = 0;
-    for (int i = 1; i < number; i++) {
-      if (number % i == 0) {
-        sum += i;
-      }
+    private static void printResult(int number) {
+        if (isPerfectNumber(number)) {
+            System.out.println(number + " is perfect number");
+        } else {
+            System.out.println(number + " is not perfect number");
+        }
     }
-    return sum == number;
-  }
+
+    private static boolean isPerfectNumber(int number) {
+        int sum = 0;
+        for (int i = 1; i < number; i++) {
+            if (number % i == 0) {
+                sum += i;
+            }
+        }
+        return sum == number;
+    }
 }
