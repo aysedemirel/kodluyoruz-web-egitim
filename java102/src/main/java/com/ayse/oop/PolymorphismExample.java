@@ -1,107 +1,105 @@
 package com.ayse.oop;
 
+/**
+ * Polymorphism Example with Java
+ *
+ * @author aysedemirel
+ */
 public class PolymorphismExample {
 
-  public PolymorphismExample() {
-    // Temel Gösterim
-    Kedi kedi = new Kedi("Nasip");
+    public PolymorphismExample() {
+        // Basic Example
+        Cat cat = new Cat("Nasip");
+        if (cat instanceof Cat) {
+            System.out.println("This object is from the Cat class");
+        }
+        if (cat instanceof Animal) {
+            System.out.println("This object is from the Animal class");
+        }
 
-    if (kedi instanceof Kedi) {
-      System.out.println("Bu nesne Kedi sınıfından");
+        // Example with function
+        Cat cat2 = new Cat("Nasip");
+        Dog dog = new Dog("Zizu");
+        Horse horse = new Horse("BoldPilot");
+        Animal animal = new Animal("Turunç");
+
+        speak(cat2);
+        speak(dog);
+        speak(horse);
+        speak(animal);
     }
 
-    if (kedi instanceof Hayvan) {
-      System.out.println("Bu nesne Hayvan sınıfından");
+
+    public static void main(String[] args) {
+        new PolymorphismExample();
     }
 
-    //Fonksiyon ile gösterim
-
-    Kedi kedii = new Kedi("Nasip");
-    Kopek kopek = new Kopek("Zizu");
-    At at = new At("BoldPilot");
-    Hayvan hayvan = new Hayvan("Turunç");
-
-    konustur(kedii);
-    konustur(kopek);
-    konustur(at);
-    konustur(hayvan);
-  }
-
-  public static void konustur(Object object) {
-
-    if (object instanceof Kopek) {
-      Kopek kopekTest = (Kopek) object;
-      System.out.println(kopekTest.konus());
-    } else if (object instanceof Kedi) {
-      Kedi kediTest = (Kedi) object;
-      System.out.println(kediTest.konus());
-    } else if (object instanceof At) {
-      At atTest = (At) object;
-      System.out.println(atTest.konus());
-    } else if (object instanceof Hayvan) {
-      Hayvan hayvanTest = (Hayvan) object;
-      System.out.println(hayvanTest.konus());
-    }
-  }
-
-  public static void main(String[] args) {
-    new PolymorphismExample();
-  }
-
-  class Hayvan {
-
-    private String isim;
-
-    public Hayvan(String isim) {
-      this.isim = isim;
+    private static void speak(Object object) {
+        if (object instanceof Dog dogTest) {
+            System.out.println(dogTest.speak());
+        } else if (object instanceof Cat catTest) {
+            System.out.println(catTest.speak());
+        } else if (object instanceof Horse horseTest) {
+            System.out.println(horseTest.speak());
+        } else if (object instanceof Animal animalTest) {
+            System.out.println(animalTest.speak());
+        }
     }
 
-    public String getIsim() {
-      return isim;
+    class Animal {
+
+        private String name;
+
+        public Animal(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String speak() {
+            return "Hayvan Konuşuyor...";
+        }
     }
 
-    public void setIsim(String isim) {
-      this.isim = isim;
+    class Cat extends Animal {
+
+        public Cat(String name) {
+            super(name);
+        }
+
+        @Override
+        public String speak() {
+            return this.getName() + " is meowing...";
+        }
     }
 
-    public String konus() {
-      return "Hayvan Konuşuyor...";
-    }
-  }
+    class Dog extends Animal {
 
-  class Kedi extends Hayvan {
+        public Dog(String name) {
+            super(name);
+        }
 
-    public Kedi(String isim) {
-      super(isim);
-    }
-
-    @Override
-    public String konus() {
-      return this.getIsim() + " Miyavlıyor...";
-    }
-  }
-
-  class Kopek extends Hayvan {
-
-    public Kopek(String isim) {
-      super(isim);
+        @Override
+        public String speak() {
+            return this.getName() + " is barking...";
+        }
     }
 
-    @Override
-    public String konus() {
-      return this.getIsim() + " Havlıyor...";
-    }
-  }
+    class Horse extends Animal {
 
-  class At extends Hayvan {
+        public Horse(String name) {
+            super(name);
+        }
 
-    public At(String isim) {
-      super(isim);
+        @Override
+        public String speak() {
+            return this.getName() + " is neighing...";
+        }
     }
-
-    @Override
-    public String konus() {
-      return this.getIsim() + " Kişniyor...";
-    }
-  }
 }

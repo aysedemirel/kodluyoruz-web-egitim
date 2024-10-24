@@ -1,21 +1,26 @@
 package com.ayse.patikastore.product;
 
-import org.ayse.java102.patikastore.Brand;
+
+import com.ayse.patikastore.Brand;
 
 import java.util.UUID;
 
 /**
- * Notebook ürünlerinin özellikleri :
+ * Features of notebook products:
  * <p>
- * Ürünün sistemde kayıtlı benzersiz numarasi,
- * Ürün adı,
- * Birim fiyatı,
- * İndirim oranı,
- * Stok miktarı,
- * Marka bilgisi (Sistemde ekli olan markalar kullanılacaktır),
- * Ram (8 GB),
- * Depolama (512 SSD),
- * Ekran Boyutu (14 inç)
+ * Unique number of the product registered in the system,
+ * Product name,
+ * Unit price,
+ * Discount rate,
+ * Stock quantity,
+ * Brand information (Brands registered in the system will be used),
+ * RAM (8 GB),
+ * Storage (512 SSD),
+ * Screen Size (14 inches)
+ *
+ * @author aysedemirel
+ * @see Brand
+ * @see Product
  */
 public class Computer implements Product {
     private UUID id;
@@ -121,5 +126,4 @@ public class Computer implements Product {
         return getName() + "      |" + getPrice() + "      |" + getBrand().getName()
                 + "      |" + getStorage() + "      |" + getScreenSize() + "      |" + getRam() + " |\n";
     }
-
 }

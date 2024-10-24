@@ -2,14 +2,14 @@ package com.ayse.excp;
 
 public class PersonException extends Exception {
 
-  int age;
+    int age;
 
-  public PersonException(int age) {
-    this.age = age;
-  }
+    public PersonException(int age) {
+        this.age = age;
+    }
 
-  @Override
-  public String toString() {
-    return "Wrong age: " + age;
-  }
+    @Override
+    public String toString() {
+        return "Wrong age: " + age;
+    }
 }

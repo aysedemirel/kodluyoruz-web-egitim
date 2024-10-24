@@ -1,9 +1,11 @@
 package com.ayse.patikastore;
 
 /**
- * Mağazada Markalar oluşturulacak ve ürünler bu markalar ile eşleşecektir.
- * id : Markanın sistemde kayıtlı benzersiz numarası
- * name : Markanın adı
+ * Brands will be created in the store and products will be matched with these brands.
+ * id: The unique number of the brand registered in the system
+ * name: The name of the brand
+ *
+ * @author aysedemirel
  */
 public class Brand {
     private int id;

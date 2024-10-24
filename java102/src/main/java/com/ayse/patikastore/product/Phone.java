@@ -1,24 +1,29 @@
 package com.ayse.patikastore.product;
 
-import org.ayse.java102.patikastore.Brand;
+
+import com.ayse.patikastore.Brand;
 
 import java.awt.*;
 import java.util.UUID;
 
 /**
- * Cep Telefonu ürünlerinin özellikleri :
+ * Features of mobile phone products:
  * <p>
- * Ürünün sistemde kayıtlı benzersiz numarası,
- * Ürün adı,
- * Birim fiyatı,
- * İndirim oranı,
- * Stok miktarı,
- * Marka bilgisi (Sistemde ekli olan markalar kullanılacaktır),
- * Telefonun hafıza bilgisi (128 GB, 64 GB),
- * Ekran Boyutu (6.1 Inc),
- * Pil Gücü (4000),
+ * Unique number of the product registered in the system,
+ * Product name,
+ * Unit price,
+ * Discount rate,
+ * Stock quantity,
+ * Brand information (Brands registered in the system will be used),
+ * Memory information of the phone (128 GB, 64 GB),
+ * Screen Size (6.1 inches),
+ * Battery Power (4000),
  * RAM (6 MB),
- * Renk (Siyah,Kırmızı,Mavi)
+ * Color (Black, Red, Blue)
+ *
+ * @author aysedemirel
+ * @see Product
+ * @see Brand
  */
 public class Phone implements Product {
     private UUID id;

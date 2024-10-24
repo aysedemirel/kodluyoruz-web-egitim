@@ -1,8 +1,8 @@
 package com.ayse.patikastore;
 
-import org.ayse.java102.patikastore.product.Computer;
-import org.ayse.java102.patikastore.product.Phone;
-import org.ayse.java102.patikastore.product.Product;
+import com.ayse.patikastore.product.Computer;
+import com.ayse.patikastore.product.Phone;
+import com.ayse.patikastore.product.Product;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,21 +11,28 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Kullanıcı sistem üzerinden ilgili kategorideki (Notebook, Cep Telefonları vb.) ürünleri listeyebilmeli
- * Ürünler listelenirken tablo şeklinde konsol ekranında gösterilmeli (System.out.format() kullanılabilir).
- * Kullanıcı ürün ekleyebilmeli ve ürünün grubunu (Cep Telefonu, Notebook vb.) seçebilmeli.
- * Kullanıcı ürünleri benzersiz numaralarına göre silebilmeli.
- * Kullanıcı ürünlerin benzersiz numaralarına ve markalarına göre filtreleyip listeleyebilmeli.
+ * PatikaStore description:
+ * Users should be able to list products in the relevant category (Notebook, Mobile Phones, etc.) through the system.
+ * Products should be displayed in a table format on the console screen (System.out.format() can be used).
+ * Users should be able to add products and select the product group (Mobile Phone, Notebook, etc.).
+ * Users should be able to delete products by their unique numbers.
+ * Users should be able to filter and list products by their unique numbers and brands.
  * <p>
- * Sanal Mağazanın adı "PatikaStore" olacaktır.
- * Markalar listelenirken her zaman alfabe sırasıyla listelenmelidir.
- * Markalar statik olarak kod blokları içerisinden aşağıdaki sıra ile eklenmelidir.
- * Markalar : Samsung, Lenovo, Apple, Huawei, Casper, Asus, HP, Xiaomi, Monster
- * Mağazada şuan için 2 tür ürün grubu satılması planlanmaktadır : Cep Telefonları, Notebook
- * Daha sonrasında farklı ürün gruplarını eklenebilir olmalıdır.
+ * The name of the virtual store will be "PatikaStore".
+ * Brands should always be listed in alphabetical order.
+ * Brands should be added in the following order within static code blocks.
+ * Brands: Samsung, Lenovo, Apple, Huawei, Casper, Asus, HP, Xiaomi, Monster
+ * Currently, 2 types of product groups are planned to be sold in the store: Mobile Phones, Notebooks
+ * Different product groups should be able to be added later.
+ *
+ * @author aysedemirel
+ * @see Computer
+ * @see Brand
+ * @see Phone
+ * @see Product
  */
+// FIXME: This problem is not solved yet. It is a work in progress.
 public class PatikaStore {
-
     private static final List<Brand> brandList;
 
     static {
@@ -72,9 +79,7 @@ public class PatikaStore {
                         System.out.print("Input: ");
                         int ch = scanner.nextInt();
                         switch (ch) {
-                            case 1 -> {
-                                notebookActions();
-                            }
+                            case 1 -> notebookActions();
                             case 2 -> {
                                 // TODO: cellphone
                             }
@@ -86,14 +91,9 @@ public class PatikaStore {
                                 }
                                 System.out.println(brands);
                             }
-                            case 0 -> {
-                                isStoreOpen = false;
-                            }
-                            default -> {
-                                System.out.println("Sorry, we couldn't solve the input, please try again...");
-                            }
+                            case 0 -> isStoreOpen = false;
+                            default -> System.out.println("Sorry, we couldn't solve the input, please try again...");
                         }
-
                     }
                 }
         ).start();
@@ -103,28 +103,16 @@ public class PatikaStore {
         printNotebookActions();
         int action = scanner.nextInt();
         switch (action) {
-            case 0 -> {
-                deleteNotebook();
-            }
-            case 1 -> {
-                addNotebook();
-            }
-            case 2 -> {
-                listNotebook();
-            }
-            case 3 -> {
-                filterNotebooksByBrand();
-            }
-            case 4 -> {
-                filterNotebooksById();
-            }
+            case 0 -> deleteNotebook();
+            case 1 -> addNotebook();
+            case 2 -> listNotebook();
+            case 3 -> filterNotebooksByBrand();
+            case 4 -> filterNotebooksById();
             case 5 -> {
                 // FIXME: In method->return;
                 System.out.println("Main menu...");
             }
-            default -> {
-                System.out.println("Sorry, we couldn't solve the input. Please try again...");
-            }
+            default -> System.out.println("Sorry, we couldn't solve the input. Please try again...");
         }
     }
 
@@ -165,7 +153,7 @@ public class PatikaStore {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("""
                 ----------------------------------------------------------------------------------------------------
-                | ID | Ürün Adı                      | Fiyat     | Marka     | Depolama  | Ekran     | RAM         |
+                | ID | Product Name                  | Price     | Brand     | Storage   | Screen    | RAM         |
                 """);
         int i = 1;
         for (Product product : productList) {
@@ -190,11 +178,11 @@ public class PatikaStore {
 
     private void printMenu() {
         String menuStr = """
-                PatikaStore Ürün Yönetim Paneli !
-                1 - Notebook İşlemleri
-                2 - Cep Telefonu İşlemleri
-                3 - Marka Listele
-                0 - Çıkış Yap
+                PatikaStore Product Management Panel!
+                1 - Notebook Operations
+                2 - Mobile Phone Operations
+                3 - List Brands
+                0 - Exit
                 """;
         System.out.println(menuStr);
     }

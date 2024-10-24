@@ -6,23 +6,23 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Java ile girilen takımlar için rastgele maç fikstürü oluşturan bir sınıf yazılmalı.
- * Çift Devreli Lig usülü uygulanacaktır. Her takım diğer takımlarla kendi evinde ve deplasmanda olmak üzere iki maç yapacaktır.
- * Listenin sol tarafı ev sahibini sağ tarafı deplasman takımını gösterir.
- * Eğer tek sayıda takım listesi girilirse, çift sayıya tamamlanacak şekilde "Bay" adında bir takım daha eklenmeli.
- * Bay ile eşleşen takımlar o hafta maç yapmayacağı anlamına gelir.
+ * A class should be written to create a random match fixture for the entered teams in Java.
+ * A double round-robin league system will be applied. Each team will play two matches with other teams, one at home and one away.
+ * The left side of the list shows the home team and the right side shows the away team.
+ * If an odd number of teams is entered, a team named "Bay" should be added to make it an even number.
+ * Teams matched with "Bay" will not play that week.
  *
  * @author aysedemireldeniz
  */
 public class LeagueTable {
     private final Scanner scanner;
     private final List<String> teams;
-    private final List<String> leagueTable;
+    private final List<String> table;
 
     public LeagueTable() {
         scanner = new Scanner(System.in);
         teams = new ArrayList<>();
-        leagueTable = new ArrayList<>();
+        table = new ArrayList<>();
         // selectTeam();
         setDefaultTeam();
         printTeam();
@@ -62,22 +62,22 @@ public class LeagueTable {
         for (int i = 0; i < teams.size(); i++) {
             for (int j = 0; j < teams.size(); j++) {
                 if (!teams.get(i).equals(teams.get(j))) {
-                    leagueTable.add(teams.get(i) + "-" + teams.get(j));
+                    table.add(teams.get(i) + "-" + teams.get(j));
                 }
             }
         }
-        Collections.shuffle(leagueTable);
+        Collections.shuffle(table);
     }
 
     private void printLeague() {
         int oneLeague = teams.size() / 2;
         int week = 1;
-        for (int i = 0; i < leagueTable.size(); i++) {
+        for (int i = 0; i < table.size(); i++) {
             if (i % oneLeague == 0) {
                 System.out.println("Week " + week + ":");
                 week++;
             }
-            System.out.println(leagueTable.get(i));
+            System.out.println(table.get(i));
         }
     }
 
