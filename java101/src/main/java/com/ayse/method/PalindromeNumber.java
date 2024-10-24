@@ -3,33 +3,30 @@ package com.ayse.method;
 import java.util.Scanner;
 
 /**
- * Palindromik sayı, iki taraftan okunduğu zaman okunuş yönüyle aynı olan sayılardır.
+ * A palindrome number is a number that reads the same backward as forward.
  * <p>
- * Örnek: 1, 4, 8, 99, 101, 363, 4004, 9889....
+ * Examples: 1, 4, 8, 99, 101, 363, 4004, 9889....
+ *
+ * @author aysedemirel
  */
 public class PalindromeNumber {
 
-  private final int number;
-
-  public PalindromeNumber() {
-    Scanner scanner = new Scanner(System.in);
-    System.out.print("Number: ");
-    number = scanner.nextInt();
-    System.out.println("is palindrome number ? -> " + isPalindromeNumber());
-  }
-
-  public static void main(String[] args) {
-    new PalindromeNumber();
-  }
-
-  private boolean isPalindromeNumber() {
-    int temp = number;
-    int newNumber = 0;
-    while (temp != 0) {
-      int digit = temp % 10;
-      newNumber = (newNumber * 10) + digit;
-      temp /= 10;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Number: ");
+        int number = scanner.nextInt();
+        System.out.println("is palindrome number ? -> " + isPalindromeNumber(number));
+        scanner.close();
     }
-    return newNumber == number;
-  }
+
+    private static boolean isPalindromeNumber(int number) {
+        int temp = number;
+        int newNumber = 0;
+        while (temp != 0) {
+            int digit = temp % 10;
+            newNumber = (newNumber * 10) + digit;
+            temp /= 10;
+        }
+        return newNumber == number;
+    }
 }

@@ -3,51 +3,45 @@ package com.ayse.method;
 import java.util.Scanner;
 
 /**
- * Java dilinde kullanıcıdan alınan n değerine göre aşağıdaki kurala uyan döngü kullanmadan bir
- * "Recursive" metot yazın.
+ * Write a "Recursive" method in Java that follows the rule below based on the value of n received from the user without using a loop.
  * <p>
- * Kural : Girilen sayı 0 veya negatif olduğu yere kadar girilen sayıdan 5 rakamını çıkarın. Her
- * çıkarma işlemi sırasında ekrana son değeri yazdırın. Sayı negatif veya 0 olduktan sonra tekrar 5
- * ekleyin. Yine her ekleme işleminde sayının son değerini ekrana yazdırın.
+ * Rule: Subtract 5 from the entered number until the number is 0 or negative. Print the final value to the screen during each subtraction.
+ * After the number becomes negative or 0, add 5 again. Print the final value to the screen during each addition.
  * <p>
- * N Sayısı : 10
+ * N Number: 10
  * <p>
- * Çıktısı : 10 5 0 5 10
+ * Output: 10 5 0 5 10
+ *
+ * @author aysedemirel
  */
 public class MethodByPattern {
 
-  private int number;
-
-  public MethodByPattern() {
-    Scanner scanner = new Scanner(System.in);
-    boolean isExit = false;
-
-    while (!isExit) {
-      System.out.print("Please enter a positive number: ");
-      number = scanner.nextInt();
-      if (number <= 0) {
-        System.out.println(number);
-      } else {
-        System.out.print(number + " ");
-        getPattern(number - 5, false);
-      }
-      System.out.println("\nIf you want to exit, please enter 0 (or enter another number) : ");
-      isExit = (scanner.nextInt() == 0);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean isExit = false;
+        while (!isExit) {
+            System.out.print("Please enter a positive number: ");
+            int number = scanner.nextInt();
+            if (number <= 0) {
+                System.out.println(number);
+            } else {
+                System.out.print(number + " ");
+                getPattern(number - 5, false, number);
+            }
+            System.out.println("\nIf you want to exit, please enter 0 (or enter another number) : ");
+            isExit = (scanner.nextInt() == 0);
+        }
+        scanner.close();
     }
-  }
 
-  public static void main(String[] args) {
-    new MethodByPattern();
-  }
-
-  private void getPattern(int no, boolean isReverse) {
-    System.out.print(no + " ");
-    if (no != number) {
-      if (!isReverse) {
-        isReverse = (no <= number && no <= 0);
-      }
-      int pattern = isReverse ? 5 : -5;
-      getPattern(no + pattern, isReverse);
+    private static void getPattern(int no, boolean isReverse, int number) {
+        System.out.print(no + " ");
+        if (no != number) {
+            if (!isReverse) {
+                isReverse = (no <= number && no <= 0);
+            }
+            int pattern = isReverse ? 5 : -5;
+            getPattern(no + pattern, isReverse, number);
+        }
     }
-  }
 }
