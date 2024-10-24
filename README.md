@@ -18,7 +18,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/aysedemirel/patika-java-store">
-    <img src="images/logo.webp" alt="Logo">
+    <img src="images/logo.png" alt="Logo">
   </a> 
 
 <h3 align="center">Patika Java Store</h3>
